@@ -25,110 +25,111 @@
 
 <body>
 	<header id="site-header">
-		<h1 id="brand">
-			<a href="/"><img src="../intra_assets/img/logo_fhi_intranet.png" alt="FHI Intranet"></a>
-		</h1>
+		<div class="inner">
+			<h1 id="brand">
+				<a href="/"><img src="../intra_assets/img/logo_fhi_intranet.png" alt="FHI Intranet"></a>
+			</h1>
+		</div>
 	</header>
 	
 	<nav class="site-nav">
-
 		<ul>
 			<li>
-				<a href="#">Business Units</a>
+				<a href="#"><img src="../intra_assets/img/icon_world.png" alt="Business Units">Business Units</a>
 				<!-- SECOND LEVEL -->
 				<ul>
 					<li><strong>Tools &amp; Resources</strong></li>
-					<li><a href="#"><span class="icon"><img src="/../intra_assets/img/icon_second_nav.png"></span>Projects</a></li>
-					<li><a href="#"><span class="icon"><img src="/../intra_assets/img/icon_second_nav.png"></span>Procedures</a></li>
-					<li><a href="#"><span class="icon"><img src="/../intra_assets/img/icon_second_nav.png"></span>Documents &amp; Forms</a></li>
-					<li><a href="#"><span class="icon"><img src="/../intra_assets/img/icon_second_nav.png"></span>External Link</a></li>
-					<li><a href="#"><span class="icon"><img src="/../intra_assets/img/icon_second_nav.png"></span>Site Map</a></li>
+					<li><a href="#">Projects</a></li>
+					<li><a href="#">Procedures</a></li>
+					<li><a href="#">Documents &amp; Forms</a></li>
+					<li><a href="#">External Link</a></li>
+					<li><a href="#">Site Map</a></li>
 				</ul>
 			</li>
 			
 			<li>
-				<a href="#">Departments</a>
+				<a href="#"><img src="../intra_assets/img/icon_buildings.png" alt="Departments">Departments</a>
 				<!-- SECOND LEVEL -->
 				<ul>
 					<li><strong>Operations Departments</strong></li>
-					<li><a href="#"><span class="icon"></span>Stuff</a></li>
-					<li><a href="#"><span class="icon"></span>More Stuff</a></li>
+					<li><a href="#">Stuff</a></li>
+					<li><a href="#">More Stuff</a></li>
 				</ul>
 			</li>
 			
 			<li>
-				<a href="#">Files and Forms</a>
+				<a href="#"><img src="../intra_assets/img/icon_forms.png" alt="Files and Forms">Files and Forms</a>
 				<!-- SECOND LEVEL -->
 				<ul>
 					<li><strong>Enterprise Departments</strong></li>
-					<li><a href="#"><span class="icon"></span>Administration</a></li>
-					<li><a href="#"><span class="icon"></span>Accounting</a></li>
-					<li><a href="#"><span class="icon"></span>Business Planning &amp; Proposals</a></li>
-					<li><a href="#"><span class="icon"></span>Compliance &amp; Internal Audit</a></li>
-					<li><a href="#"><span class="icon"></span>Contract Billing/ Revenue Recognition</a></li>
-					<li><a href="#"><span class="icon"></span>Contract Management Services</a></li>
-					<li><a href="#"><span class="icon"></span>Corporate Administration</a></li>
-					<li><a href="#"><span class="icon"></span>Corporate Communications</a></li>
-					<li><a href="#"><span class="icon"></span>Corporate Finance</a></li>
-					<li><a href="#"><span class="icon"></span>Cost &amp; Pricing</a></li>
-					<li><a href="#"><span class="icon"></span>D360 Finance</a></li>
-					<li><a href="#"><span class="icon"></span>DC Facilities</a></li>
-					<li><a href="#"><span class="icon"></span>Enterprise Operations &amp; Logistics</a></li>
-					<li><a href="#"><span class="icon"></span>Global Portfolio Management</a></li>
-					<li><a href="#"><span class="icon"></span>Human Resources</a></li>
-					<li><a href="#"><span class="icon"></span>Information Solutions &amp; Services</a></li>
-					<li><a href="#"><span class="icon"></span>Operations Finance</a></li>
-					<li><a href="#"><span class="icon"></span>Project Management Standards Office</a></li>
-					<li><a href="#"><span class="icon"></span>Purchasing</a></li>
-					<li><a href="#"><span class="icon"></span>Social Marketing &amp; Communication</a></li>
-					<li><a href="#"><span class="icon"></span>Strategy</a></li>
-					<li><a href="#"><span class="icon"></span>US Education &amp; Workforce Development</a></li>
+					<li><a href="#">Administration</a></li>
+					<li><a href="#">Accounting</a></li>
+					<li><a href="#">Business Planning &amp; Proposals</a></li>
+					<li><a href="#">Compliance &amp; Internal Audit</a></li>
+					<li><a href="#">Contract Billing/ Revenue Recognition</a></li>
+					<li><a href="#">Contract Management Services</a></li>
+					<li><a href="#">Corporate Administration</a></li>
+					<li><a href="#">Corporate Communications</a></li>
+					<li><a href="#">Corporate Finance</a></li>
+					<li><a href="#">Cost &amp; Pricing</a></li>
+					<li><a href="#">D360 Finance</a></li>
+					<li><a href="#">DC Facilities</a></li>
+					<li><a href="#">Enterprise Operations &amp; Logistics</a></li>
+					<li><a href="#">Global Portfolio Management</a></li>
+					<li><a href="#">Human Resources</a></li>
+					<li><a href="#">Information Solutions &amp; Services</a></li>
+					<li><a href="#">Operations Finance</a></li>
+					<li><a href="#">Project Management Standards Office</a></li>
+					<li><a href="#">Purchasing</a></li>
+					<li><a href="#">Social Marketing &amp; Communication</a></li>
+					<li><a href="#">Strategy</a></li>
+					<li><a href="#">US Education &amp; Workforce Development</a></li>
 				</ul>
 			</li>
 			
 			<li>
-				<a href="#">How-To Docs</a>
+				<a href="#"><img src="../intra_assets/img/icon_docs.png" alt="How-To Docs">How-To Docs</a>
 				<!-- SECOND LEVEL -->
 				<ul>
 					<li><strong>People Directory</strong></li>
-					<li><a href="/section"><span class="icon"></span>Stuff</a></li>
-					<li><a href="#"><span class="icon"></span>More Stuff</a></li>
+					<li><a href="/section">Stuff</a></li>
+					<li><a href="#">More Stuff</a></li>
 				</ul>
 			</li>
 
 			<li>
-				<a href="#">Projects</a>
+				<a href="#"><img src="../intra_assets/img/icon_heart.png" alt="Projects">Projects</a>
 				<!-- SECOND LEVEL -->
 				<ul>
 					<li><strong>People Directory</strong></li>
-					<li><a href="/section"><span class="icon"></span>Stuff</a></li>
-					<li><a href="#"><span class="icon"></span>More Stuff</a></li>
+					<li><a href="/section">Stuff</a></li>
+					<li><a href="#">More Stuff</a></li>
 				</ul>
 			</li>
 
 			<li>
-				<a href="#">Quick Links</a>
+				<a href="#"><img src="../intra_assets/img/icon_link.png" alt="Quick Links">Quick Links</a>
 				<!-- SECOND LEVEL -->
 				<ul>
 					<li><strong>People Directory</strong></li>
-					<li><a href="/section"><span class="icon"></span>Stuff</a></li>
-					<li><a href="#"><span class="icon"></span>More Stuff</a></li>
+					<li><a href="/section">Stuff</a></li>
+					<li><a href="#">More Stuff</a></li>
 				</ul>
 			</li>
 
 			<li>
-				<a href="#">People Directory</a>
+				<a href="#"><img src="../intra_assets/img/icon_person.png" alt="People Directory">People Directory</a>
 				<!-- SECOND LEVEL -->
 				<ul>
 					<li><strong>People Directory</strong></li>
-					<li><a href="/section"><span class="icon"></span>Stuff</a></li>
-					<li><a href="#"><span class="icon"></span>More Stuff</a></li>
+					<li><a href="/section">Stuff</a></li>
+					<li><a href="#">More Stuff</a></li>
 				</ul>
 			</li>
 
 		</ul>
 	</nav>
 	
-	<nav id="second-nav">
+	<nav class="second-nav">
 		<ul></ul>
 	</nav>

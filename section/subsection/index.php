@@ -1,13 +1,9 @@
 	<?php include('../../intra_inc/header.php'); ?> 
 
 <section id="main">
-	<nav id="section-nav">
+	<nav class="section-nav">
 		<a href="#" class="toggle">
-			<div class="inner">
-				<span class="stripe"></span>
-				<span class="stripe"></span>
-				<span class="stripe"></span>
-			</div>
+			<span class="btn-toggle"></span>
 		</a>
 		<h3>Section Title 2</h3>
 		<ul>
