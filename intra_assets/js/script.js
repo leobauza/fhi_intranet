@@ -99,22 +99,69 @@ if (typeof console == "undefined") {
  * NAV HEIGHTS
  * =============================================================
  */
+	var $siteNavHeight = 0;
+	var $heightDif = 0;
 	function navHeight(el,height){
 		if($(el).length) {
 			$(el).height(height);
 		}
 	}
-	var $targetHeight = $(window).height() - 53;
-	navHeight('.site-nav', $targetHeight);
-	navHeight('.second-nav', $targetHeight);
-	navHeight('.section-nav', $targetHeight);
+
+	$(window).load(function(){
+		//cache site nav ul height
+		//then subtract the height every time to figure out how much it can scroll
+		$siteNavHeight = $('.site-nav').height();
+
+		var $targetHeight = $(window).height() - 53;
+		navHeight('.site-nav', $targetHeight);
+		navHeight('.second-nav', $targetHeight);
+		navHeight('.section-nav', $targetHeight);
+
+		//Get DIF after height is adjusted
+		$heightDif = $siteNavHeight - $('.site-nav').height();
+		console.log($heightDif)
+
+	});
 	
 	$(window).resize(function(){
 		var $reTargetHeight = $(window).height() - 53;
 		navHeight('.site-nav', $reTargetHeight);
 		navHeight('.second-nav', $reTargetHeight);
 		navHeight('.section-nav', $reTargetHeight);
+
+		//get DIF on resize
+		$heightDif = $siteNavHeight - $('.site-nav').height();
+		console.log($heightDif)
+
 	});
+
+/* 
+ * =============================================================
+ * NAV SCROLL
+ * =============================================================
+ */
+
+var marginTop = 0;
+$('.site-nav').bind('mousewheel', function(event, delta, deltaX, deltaY) {
+		var vel = Math.abs(delta);
+		
+		var dir = delta > 0 ? 'Up' : 'Down';
+		if(dir == "Up" && marginTop < 0) {
+
+			if(vel + marginTop > 0) {
+				vel = -(marginTop);
+			}
+
+			$('.site-nav').find('ul').css('margin-top', '+=' + vel);
+			marginTop += vel;
+		} else if(dir == "Down" && marginTop > -($heightDif)){
+			
+			$('.site-nav').find('ul').css('margin-top', '-=' + vel);
+			marginTop -= vel;
+		}
+		
+		return false;
+});
 
 
 /* 
