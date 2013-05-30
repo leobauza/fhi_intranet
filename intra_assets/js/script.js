@@ -205,7 +205,7 @@ function mouseWheelie(object, dif) {
 
 function clickScrollie(object, dif) {
 	console.log(dif);
-	$(object).append('<a href="#">stufffff</a>');
+	//$(object).append('<a href="#">stufffff</a>');
 }
 
 

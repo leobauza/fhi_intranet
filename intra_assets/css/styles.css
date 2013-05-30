@@ -947,7 +947,7 @@ form .pretty-radio.active {
 }
 /* SECOND LEVEL */
 .second-nav {
-  overflow: auto;
+  overflow: hidden;
   position: absolute;
   left: -200px;
   top: 53px;
