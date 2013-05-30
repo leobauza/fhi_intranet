@@ -27,15 +27,15 @@
 	<header id="site-header">
 		<div class="inner">
 			<h1 id="brand">
-				<a href="/"><img src="../intra_assets/img/logo_fhi_intranet.png" alt="FHI Intranet"></a>
+				<a href="/"><img src="/intra_assets/img/logo_fhi_intranet.png" alt="FHI Intranet"></a>
 			</h1>
 		</div>
 	</header>
 	
-	<nav class="site-nav">
+	<nav class="site-nav" data-role="nav">
 		<ul>
 			<li>
-				<a href="#"><img src="../intra_assets/img/icon_world.png" alt="Business Units">Business Units</a>
+				<a href="#"><img src="/intra_assets/img/icon_world.png" alt="Business Units">Business Units</a>
 				<!-- SECOND LEVEL -->
 				<ul>
 					<li><strong>Tools &amp; Resources</strong></li>
@@ -48,7 +48,7 @@
 			</li>
 			
 			<li>
-				<a href="#"><img src="../intra_assets/img/icon_buildings.png" alt="Departments">Departments</a>
+				<a href="#"><img src="/intra_assets/img/icon_buildings.png" alt="Departments">Departments</a>
 				<!-- SECOND LEVEL -->
 				<ul>
 					<li><strong>Operations Departments</strong></li>
@@ -58,7 +58,7 @@
 			</li>
 			
 			<li>
-				<a href="#"><img src="../intra_assets/img/icon_forms.png" alt="Files and Forms">Files and Forms</a>
+				<a href="#"><img src="/intra_assets/img/icon_forms.png" alt="Files and Forms">Files and Forms</a>
 				<!-- SECOND LEVEL -->
 				<ul>
 					<li><strong>Enterprise Departments</strong></li>
@@ -88,7 +88,7 @@
 			</li>
 			
 			<li>
-				<a href="#"><img src="../intra_assets/img/icon_docs.png" alt="How-To Docs">How-To Docs</a>
+				<a href="#"><img src="/intra_assets/img/icon_docs.png" alt="How-To Docs">How-To Docs</a>
 				<!-- SECOND LEVEL -->
 				<ul>
 					<li><strong>People Directory</strong></li>
@@ -98,7 +98,7 @@
 			</li>
 
 			<li>
-				<a href="#"><img src="../intra_assets/img/icon_heart.png" alt="Projects">Projects</a>
+				<a href="#"><img src="/intra_assets/img/icon_heart.png" alt="Projects">Projects</a>
 				<!-- SECOND LEVEL -->
 				<ul>
 					<li><strong>People Directory</strong></li>
@@ -108,7 +108,7 @@
 			</li>
 
 			<li>
-				<a href="#"><img src="../intra_assets/img/icon_link.png" alt="Quick Links">Quick Links</a>
+				<a href="#"><img src="/intra_assets/img/icon_link.png" alt="Quick Links">Quick Links</a>
 				<!-- SECOND LEVEL -->
 				<ul>
 					<li><strong>People Directory</strong></li>
@@ -118,7 +118,7 @@
 			</li>
 
 			<li>
-				<a href="#"><img src="../intra_assets/img/icon_person.png" alt="People Directory">People Directory</a>
+				<a href="#"><img src="/intra_assets/img/icon_person.png" alt="People Directory">People Directory</a>
 				<!-- SECOND LEVEL -->
 				<ul>
 					<li><strong>People Directory</strong></li>
@@ -130,6 +130,6 @@
 		</ul>
 	</nav>
 	
-	<nav class="second-nav">
+	<nav class="second-nav" data-role="nav">
 		<ul></ul>
 	</nav>

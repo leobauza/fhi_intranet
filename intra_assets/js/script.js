@@ -99,69 +99,114 @@ if (typeof console == "undefined") {
  * NAV HEIGHTS
  * =============================================================
  */
-	var $siteNavHeight = 0;
-	var $heightDif = 0;
+	var $siteNavHeight = []; //site-nav = 0, second-nav = 1, section-nav = 2
+	var $heightDif = [];
+	var $checkSection = 0;
+	
+	function getInitHeight(el, x){
+		$siteNavHeight[x] = ($(el).height());
+	}
+	
 	function navHeight(el,height){
 		if($(el).length) {
 			$(el).height(height);
 		}
 	}
 
-	$(window).load(function(){
-		//cache site nav ul height
-		//then subtract the height every time to figure out how much it can scroll
-		$siteNavHeight = $('.site-nav').height();
+	function navDif(el, x) {
+		if(x == 2) {
+			$heightDif[x] = ($siteNavHeight[x] - 63) - ($(el).parent().height() - 63);
+		} else {
+			$heightDif[x] = $siteNavHeight[x] - $(el).height();
+		}
+		
+		//attach the wheel
+		mouseWheelie(el, $heightDif[x]);
+		clickScrollie(el, $heightDif[x]);
+		
+		console.log('dif for ' + x + ' is ' + $heightDif[x] + ' and init nav height is ' + $siteNavHeight[x] + ' current height is ' + $(el).height());
+	}
 
+	//when the window loads
+	$(window).load(function(){
+		//SITE NAV
+		getInitHeight('.site-nav', 0);
+		//set actual size of nav to take up whole window
 		var $targetHeight = $(window).height() - 53;
 		navHeight('.site-nav', $targetHeight);
-		navHeight('.second-nav', $targetHeight);
-		navHeight('.section-nav', $targetHeight);
-
 		//Get DIF after height is adjusted
-		$heightDif = $siteNavHeight - $('.site-nav').height();
-		console.log($heightDif)
+		navDif('.site-nav', 0);
+
+		//SECTION NAV
 
 	});
 	
+	//if window is resized
 	$(window).resize(function(){
+		$('[data-role="nav"] ul').css('margin-top','0')
 		var $reTargetHeight = $(window).height() - 53;
-		navHeight('.site-nav', $reTargetHeight);
-		navHeight('.second-nav', $reTargetHeight);
-		navHeight('.section-nav', $reTargetHeight);
 
+
+		if($siteNavHeight[2]) {
+			$('.section-nav').height('auto');
+			
+			//Resize for just .section-nav
+			navHeight('.section-nav', $reTargetHeight);
+			//get DIF on resize
+			navDif('.section-nav-inner', 2);
+		}
+
+		//Resize for just .site-nav
+		navHeight('.site-nav', $reTargetHeight);
 		//get DIF on resize
-		$heightDif = $siteNavHeight - $('.site-nav').height();
-		console.log($heightDif)
+		navDif('.site-nav', 0);
 
 	});
-
+	
 /* 
  * =============================================================
- * NAV SCROLL
+ * NAV SCROLL (mousewheel)
  * =============================================================
  */
 
 var marginTop = 0;
-$('.site-nav').bind('mousewheel', function(event, delta, deltaX, deltaY) {
-		var vel = Math.abs(delta);
-		
-		var dir = delta > 0 ? 'Up' : 'Down';
-		if(dir == "Up" && marginTop < 0) {
 
-			if(vel + marginTop > 0) {
-				vel = -(marginTop);
+function mouseWheelie(object, dif) {
+	var marginTop = 0;
+	$(object).unbind('mousewheel');
+	$(object).bind('mousewheel', function(event, delta, deltaX, deltaY) {
+			var vel = Math.abs(delta);
+
+			var dir = delta > 0 ? 'Up' : 'Down';
+			if(dir == "Up" && marginTop < 0) {
+
+				//attempt to make it not go too far if u scroll fast
+				if(vel + marginTop > 0) {
+					vel = -(marginTop);
+				}
+
+				$(object).find('ul').css('margin-top', '+=' + vel);
+				marginTop += vel;
+			} else if(dir == "Down" && marginTop > -(dif)){
+
+				$(object).find('ul').css('margin-top', '-=' + vel);
+				marginTop -= vel;
 			}
+			return false;
+	});
 
-			$('.site-nav').find('ul').css('margin-top', '+=' + vel);
-			marginTop += vel;
-		} else if(dir == "Down" && marginTop > -($heightDif)){
-			
-			$('.site-nav').find('ul').css('margin-top', '-=' + vel);
-			marginTop -= vel;
-		}
-		
-		return false;
-});
+}
+
+/* 
+ * =============================================================
+ * NAV SCROLL (hover over arrow)
+ * =============================================================
+ */
+
+function clickScrollie(object, dif) {
+	console.log(dif);
+	$(object).append('<a href="#">stufffff</a>');
+}
 
 
 /* 
@@ -172,9 +217,21 @@ $('.site-nav').bind('mousewheel', function(event, delta, deltaX, deltaY) {
 	$('.site-nav > ul > li').find('a').click(function(e){
 		$('.site-nav a.active').removeClass('active');
 		$(this).addClass('active');
+		$('.second-nav').addClass('active');
 		var navHtml = $(this).closest('li').find('ul').html();
 		$('.second-nav ul').html(navHtml);
 		var pos = $('.second-nav').position();
+
+		//SECOND NAV
+		//make sure margin of ul is 0
+		$('.second-nav ul').css('margin-top', '0px');
+		getInitHeight('.second-nav ul', 1);
+		//set actual size of nav to take up whole window
+		var $targetHeight = $(window).height() - 53;
+		navHeight('.second-nav', $targetHeight);
+		//Get DIF after height is adjusted
+		navDif('.second-nav', 1);
+		
 		var posLeft = pos.left;
 		if(posLeft < 0) {
 			$('.second-nav').animate({left:'101px'},500);
@@ -188,7 +245,7 @@ $('.site-nav').bind('mousewheel', function(event, delta, deltaX, deltaY) {
 		},
 		function(){
 			$('.second-nav').animate({left:'-200px'},500);
-			$('.site-nav a.active').removeClass('active');
+			$('.site-nav a.active, .second-nav').removeClass('active');
 		}
 	);
 
@@ -230,7 +287,7 @@ $('.site-nav').bind('mousewheel', function(event, delta, deltaX, deltaY) {
  * =============================================================
  */
 	function assignPagination(url) {
-		console.log(url);
+		//console.log(url);
 		var url = url.split('/');
 
 		for (var i=0; i<url.length ;i++){
@@ -286,7 +343,7 @@ $('.site-nav').bind('mousewheel', function(event, delta, deltaX, deltaY) {
 		if($('.section-nav').length) {
 			$('.section-nav').html($nav);
 		} else {
-			$('#main').prepend('<nav class="section-nav">' + $nav + '</nav>');
+			$('#main').prepend('<nav class="section-nav" data-role="nav">' + $nav + '</nav>');
 		}
 		
 		//Create pages effect
@@ -325,9 +382,22 @@ $('.site-nav').bind('mousewheel', function(event, delta, deltaX, deltaY) {
 		assignPagination(url + '/');
 		//remake l classes
 		ieCompSpans();
-		//size for section nav
+		
+		
+		//SECTION NAV
+		//make sure margin of ul is 0 and the initial height is auto
+		$('.section-nav-inner ul').css('margin-top', '0px');
+		$('.section-nav').height('auto');
+		
+		getInitHeight('.section-nav', 2);
+		//set actual size of nav to take up whole window
 		var $targetHeight = $(window).height() - 53;
 		navHeight('.section-nav', $targetHeight);
+		//Get DIF after height is adjusted
+		navDif('.section-nav-inner', 2);
+		
+		
+		
 	}
 
 	function bindAjaxClicks() {

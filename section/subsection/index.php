@@ -1,21 +1,31 @@
 	<?php include('../../intra_inc/header.php'); ?> 
 
 <section id="main">
-	<nav class="section-nav">
+	<nav class="section-nav" data-role="nav">
 		<a href="#" class="toggle">
 			<span class="btn-toggle"></span>
 		</a>
 		<h3>Section Title 2</h3>
-		<ul>
-			<li><a href="/section/subsection/subsubsection">Section Title 3</a></li>
-			<li><a href="#">Child Page 2</a></li>
-			<li><a href="#">Child Page 3</a></li>
-			<li><a href="#">Child Page 4</a></li>
-			<li><a href="#">Child Page 5</a></li>
-			<li><a href="#">Child Page 6</a></li>
-			<li><a href="#">Child Page 7</a></li>
-			<li><a href="#">Child Page 8</a></li>
-		</ul>
+		<div class="section-nav-inner">
+			<ul>
+				<li><a href="/section/subsection/subsubsection">Section Title 3</a></li>
+				<li><a href="#">Child Page 2</a></li>
+				<li><a href="#">Child Page 3</a></li>
+				<li><a href="#">Child Page 4</a></li>
+				<li><a href="#">Child Page 5</a></li>
+				<li><a href="#">Child Page 6</a></li>
+				<li><a href="#">Child Page 7</a></li>
+				<li><a href="#">Child Page 8</a></li>
+				<li><a href="/section/subsection/subsubsection">Section Title 3</a></li>
+				<li><a href="#">Child Page 2</a></li>
+				<li><a href="#">Child Page 3</a></li>
+				<li><a href="#">Child Page 4</a></li>
+				<li><a href="#">Child Page 5</a></li>
+				<li><a href="#">Child Page 6</a></li>
+				<li><a href="#">Child Page 7</a></li>
+				<li><a href="#">Child Page 8</a></li>
+			</ul>
+		</div>
 	</nav>
 	
 	<section id="pages" class="medium"> <!-- classes are high and medium -->
