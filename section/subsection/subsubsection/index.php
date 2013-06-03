@@ -31,11 +31,7 @@
 	<section id="pages" class="high"> <!-- classes are high and medium -->
 		<div class="inner">
 
-			<div class="last">
-				<a href="#" class="pagination">last</a>
-				<div class="middle">
-					<a href="#" class="pagination">middle</a>
-					<div class="front">
+
 
 						<div class="row-fluid">
 							<article class="span6 box">
@@ -63,9 +59,7 @@
 							</article>
 						</div> <!-- end row -->
 
-					</article>
-				</article>
-			</article>
+
 
 		</div> <!-- end inner wrap -->
 	</section> <!-- end pages -->

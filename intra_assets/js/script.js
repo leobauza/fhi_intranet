@@ -130,12 +130,12 @@ if (typeof console == "undefined") {
 	//when the window loads
 	$(window).load(function(){
 		//SITE NAV
-		getInitHeight('.site-nav', 0);
+		getInitHeight('.site-nav.nav-vertical', 0);
 		//set actual size of nav to take up whole window
 		var $targetHeight = $(window).height() - 53;
-		navHeight('.site-nav', $targetHeight);
+		navHeight('.site-nav.nav-vertical', $targetHeight);
 		//Get DIF after height is adjusted
-		navDif('.site-nav', 0);
+		navDif('.site-nav.nav-vertical', 0);
 
 		//SECTION NAV
 
@@ -157,9 +157,9 @@ if (typeof console == "undefined") {
 		}
 
 		//Resize for just .site-nav
-		navHeight('.site-nav', $reTargetHeight);
+		navHeight('.site-nav.nav-vertical', $reTargetHeight);
 		//get DIF on resize
-		navDif('.site-nav', 0);
+		navDif('.site-nav.nav-vertical', 0);
 
 	});
 	
@@ -214,8 +214,8 @@ function clickScrollie(object, dif) {
  * SITE NAV PULL OUT
  * =============================================================
  */
-	$('.site-nav > ul > li').find('a').click(function(e){
-		$('.site-nav a.active').removeClass('active');
+	$('.site-nav.nav-vertical > ul > li').find('a').click(function(e){
+		$('.site-nav.nav-vertical a.active').removeClass('active');
 		$(this).addClass('active');
 		$('.second-nav').addClass('active');
 		var navHtml = $(this).closest('li').find('ul').html();
@@ -245,7 +245,7 @@ function clickScrollie(object, dif) {
 		},
 		function(){
 			$('.second-nav').animate({left:'-200px'},500);
-			$('.site-nav a.active, .second-nav').removeClass('active');
+			$('.site-nav.nav-vertical a.active, .second-nav').removeClass('active');
 		}
 	);
 
@@ -287,28 +287,11 @@ function clickScrollie(object, dif) {
  * =============================================================
  */
 	function assignPagination(url) {
-		//console.log(url);
-		var url = url.split('/');
+		
+		console.log('assign pagination fired')
 
-		for (var i=0; i<url.length ;i++){
-			var newUrl = url.pop();
-			var usableLink = url.join('/');
-			
-			//console.log(usableLink);
-			if(i == 1) {
-				$('.middle > .pagination').attr('href', usableLink);
-			} else if(i == 2) {
-				$('.last > .pagination').attr('href', usableLink);
-			} else if(i > 2) {
-				console.log('do something with these links')
-			}
-		}
 	}
 	
-
-	var loadUrl = window.location.pathname;
-	assignPagination(loadUrl);
-
 /* 
  * =============================================================
  * GET CONTENT PAGE CREATE
@@ -331,13 +314,13 @@ function clickScrollie(object, dif) {
 		var
 			$data = $(documentHtml(data))
 			, $title = $data.find('.document-title:first').text()
-			, $front = $data.find('#pages .front').html()
+			, $front = $data.find('#pages .inner').html()
 			, $nav = $data.find('.section-nav').html();
 		;
 		var split = url.split('/');
 
 		//content swap
-		$('#pages .front').html($front);
+		$('#pages .inner').html($front);
 		
 		//nav swap
 		if($('.section-nav').length) {
@@ -351,13 +334,8 @@ function clickScrollie(object, dif) {
 			$('#pages').removeClass();
 			$('.section-nav').remove();
 		} else if(split.length == 3) {
-			$('#pages').removeClass();
-			$('#pages').addClass('medium');
 		} else if(split.length >= 4) {
-			$('#pages').removeClass();
-			$('#pages').addClass('high');
 		} else {
-			$('#pages').removeClass();
 		}
 		
 		//Animate navigation and pages after page change
@@ -378,8 +356,6 @@ function clickScrollie(object, dif) {
 		bindAjaxClicks();
 		//bind toggle clicks again
 		bindToggleClick();
-		//assign correct links for pagination
-		assignPagination(url + '/');
 		//remake l classes
 		ieCompSpans();
 		

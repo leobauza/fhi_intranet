@@ -25,15 +25,22 @@
 
 <body>
 	<header id="site-header">
-		<div class="inner">
+		<nav class="site-nav nav-horizontal">
 			<h1 id="brand">
 				<a href="/"><img src="/intra_assets/img/logo_fhi_intranet.png" alt="FHI Intranet"></a>
 			</h1>
-		</div>
+			<ul class="menu menu-right">
+				<li><a href="#">Questions / Comments?</a></li>
+				<li><a href="#">Intranet Index</a></li>
+				<li><a href="#">FHI360.org</a></li>
+				<li><a href="#">User</a></li>
+				<li><a href="#">Search</a></li>
+			</ul>
+		</nav>
 	</header>
 	
-	<nav class="site-nav" data-role="nav">
-		<ul>
+	<nav class="site-nav nav-vertical" data-role="nav">
+		<ul class="menu menu-vertical">
 			<li>
 				<a href="#"><img src="/intra_assets/img/icon_world.png" alt="Business Units">Business Units</a>
 				<!-- SECOND LEVEL -->
