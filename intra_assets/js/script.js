@@ -288,8 +288,8 @@ function clickScrollie(object, dif) {
  */
 	function assignPagination(url) {
 		
+		
 		console.log('assign pagination fired')
-
 	}
 	
 /* 
